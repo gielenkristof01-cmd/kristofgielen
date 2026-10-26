@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kristof Gielen – CV</title>
+<meta name="description" content="Kristof Gielen – Director Digital Marketing, E-commerce & Hardware at Telenet. Digital sales, e-commerce and marketing leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F6F8;
+    --surface: #FFFFFF;
+    --ink: #172033;
+    --muted: #5A6577;
+    --rule: #DCE1E7;
+    --accent: #2F45C2;
+    --c-early: #CDD4DD;
+    --c-dl: #A3AEBD;
+    --c-kbc1: #8C9BD6;
+    --c-kbc2: #7486CF;
+    --c-kbc3: #5C71C9;
+    --c-kbc4: #445BC4;
+    --c-kbc5: #2F45C2;
+    --c-telenet: #17206B;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10141C;
+      --surface: #171C26;
+      --ink: #E7EAF0;
+      --muted: #9AA3B2;
+      --rule: #2A3140;
+      --accent: #8FA0FF;
+      --c-early: #343C4B;
+      --c-dl: #4A5466;
+      --c-kbc1: #3A4780;
+      --c-kbc2: #43529A;
+      --c-kbc3: #4D5EB4;
+      --c-kbc4: #5A6CCB;
+      --c-kbc5: #6E80E0;
+      --c-telenet: #A9B6FF;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10141C; --surface: #171C26; --ink: #E7EAF0; --muted: #9AA3B2; --rule: #2A3140; --accent: #8FA0FF;
+    --c-early: #343C4B; --c-dl: #4A5466; --c-kbc1: #3A4780; --c-kbc2: #43529A; --c-kbc3: #4D5EB4; --c-kbc4: #5A6CCB; --c-kbc5: #6E80E0; --c-telenet: #A9B6FF;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Schibsted Grotesk", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 24px 72px;
+  }
+
+  /* Header */
+  header h1 {
+    font-size: clamp(2.6rem, 8vw, 4.4rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    margin: 0 0 14px;
+  }
+  .role {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  .contact {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .contact a { margin-right: 18px; }
+
+  /* Career strip – the one memorable element */
+  .career {
+    margin: 44px 0 52px;
+  }
+  .strip {
+    display: flex;
+    height: 34px;
+    border-radius: 6px;
+    overflow: hidden;
+    gap: 2px;
+  }
+  .strip > span { display: block; height: 100%; }
+  .s-early   { flex: 71;  background: var(--c-early); }
+  .s-dl      { flex: 28;  background: var(--c-dl); }
+  .s-kbc     { flex: 120; display: flex !important; gap: 1px; }
+  .s-kbc i   { display: block; height: 100%; }
+  .k1 { flex: 21; background: var(--c-kbc1); }
+  .k2 { flex: 12; background: var(--c-kbc2); }
+  .k3 { flex: 35; background: var(--c-kbc3); }
+  .k4 { flex: 35; background: var(--c-kbc4); }
+  .k5 { flex: 17; background: var(--c-kbc5); }
+  .s-telenet { flex: 31;  background: var(--c-telenet); }
+
+  .axis {
+    position: relative;
+    height: 22px;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .axis span { position: absolute; top: 0; white-space: nowrap; }
+  .axis .a0 { left: 0; }
+  .axis .a1 { left: 28.4%; transform: translateX(-50%); }
+  .axis .a2 { left: 39.6%; transform: translateX(-50%); }
+  .axis .a3 { left: 87.6%; transform: translateX(-50%); }
+  .axis .a4 { right: 0; }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .legend li { display: flex; align-items: center; gap: 8px; }
+  .legend b { color: var(--ink); font-weight: 600; }
+  .sw { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+  .sw-kbc { background: linear-gradient(90deg, var(--c-kbc1), var(--c-kbc5)); }
+
+  /* Sections */
+  section { margin-top: 56px; }
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .profile p {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    font-weight: 450;
+    max-width: 34em;
+    margin: 0;
+  }
+
+  /* Employers */
+  .employer { margin-top: 40px; }
+  .employer:first-of-type { margin-top: 8px; }
+  .employer-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin-bottom: 4px;
+  }
+  .employer-head h3 {
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    margin: 0;
+  }
+  .employer-head .span {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .employer-note { color: var(--muted); margin: 0 0 8px; max-width: 40em; }
+
+  .job {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 0 28px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .employer-head + .job, .employer-note + .job { border-top: none; }
+  .job .when {
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-variant-numeric: tabular-nums;
+    padding-top: 4px;
+  }
+  .job h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+  .job p { margin: 0 0 10px; max-width: 38em; }
+  .job ul { margin: 0 0 10px; padding-left: 1.1em; max-width: 38em; }
+  .job li { margin-bottom: 4px; }
+  .job li::marker { color: var(--accent); }
+  .sub {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 16px 0 6px;
+  }
+
+  /* Telenet results */
+  .results {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 12px 0 18px;
+    max-width: 38em;
+  }
+  .result {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .result .seg { font-size: 0.88rem; color: var(--muted); margin: 0 0 4px; }
+  .result .move {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .result .move .from { color: var(--muted); font-weight: 600; }
+  .result .move .arrow { color: var(--muted); font-weight: 400; margin: 0 4px; }
+  .result .what { font-size: 0.88rem; color: var(--muted); margin: 4px 0 0; }
+
+  /* Early career */
+  .early { list-style: none; padding: 0; margin: 0; }
+  .early li {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 0 28px;
+    padding: 12px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .early li:first-child { border-top: none; }
+  .early .when { color: var(--muted); font-size: 0.92rem; font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .early strong { font-weight: 600; }
+  .early .org { color: var(--muted); }
+  .early .focus { display: block; font-size: 0.95rem; }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .page { padding: 36px 16px 56px; }
+    .job, .early li { grid-template-columns: 1fr; }
+    .job .when, .early .when { padding-top: 0; margin-bottom: 4px; }
+    .results { grid-template-columns: 1fr; }
+    .profile p { font-size: 1.15rem; }
+    .axis .a1 { transform: none; left: calc(28.4% - 12px); }
+    .axis .a4 { display: none; }
+    .axis .a3 { transform: none; left: auto; right: 0; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 14mm; }
+    body { background: #fff; color: #000; font-size: 10.5pt; }
+    .page { padding: 0; max-width: none; }
+    section { margin-top: 22px; }
+    .career { margin: 18px 0 10px; }
+    .employer { break-inside: auto; }
+    .job, .result, .early li { break-inside: avoid; }
+    .result { border-color: #ccc; }
+    footer { display: none; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header>
+    <h1>Kristof Gielen</h1>
+    <p class="role">Director Digital Marketing, E&#8209;commerce &amp; Hardware at Telenet</p>
+    <p class="contact">
+      <!-- Voeg hier eventueel je e-mailadres toe, bijvoorbeeld:
+      <a href="mailto:naam@voorbeeld.be">naam@voorbeeld.be</a> -->
+      <a href="https://www.linkedin.com/in/kristof-gielen-5602957/">LinkedIn</a>
+    </p>
+  </header>
+
+  <div class="career" aria-label="Career overview from 2005 to today">
+    <div class="strip" aria-hidden="true">
+      <span class="s-early" title="Early career, 2005–2011"></span>
+      <span class="s-dl" title="Delta Lloyd Bank, 2011–2014"></span>
+      <span class="s-kbc" title="KBC, 2014–2024">
+        <i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i><i class="k5"></i>
+      </span>
+      <span class="s-telenet" title="Telenet, 2024–today"></span>
+    </div>
+    <div class="axis" aria-hidden="true">
+      <span class="a0">2005</span>
+      <span class="a1">2011</span>
+      <span class="a2">2014</span>
+      <span class="a3">2024</span>
+      <span class="a4">today</span>
+    </div>
+    <ul class="legend">
+      <li><span class="sw" style="background:var(--c-early)"></span><span><b>Communication</b> non-profit &amp; public sector</span></li>
+      <li><span class="sw" style="background:var(--c-dl)"></span><span><b>Delta Lloyd Bank</b> online marketing</span></li>
+      <li><span class="sw sw-kbc"></span><span><b>KBC</b> five roles, marketeer to architect</span></li>
+      <li><span class="sw" style="background:var(--c-telenet)"></span><span><b>Telenet</b> director</span></li>
+    </ul>
+  </div>
+
+  <section class="profile">
+    <h2>Profile</h2>
+    <p>Digital commercial leader who drives online sales growth for a leading Belgian telecom brand. Leads 5 teams (55 FTE) across e-commerce, digital marketing, CX design, analytics and marketing automation, balancing day-to-day sales performance with long-term digital transformation.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <!-- Telenet -->
+    <div class="employer">
+      <div class="employer-head">
+        <h3>Telenet</h3>
+        <span class="span">2024 – present</span>
+      </div>
+      <div class="job">
+        <div class="when">2024 – present</div>
+        <div>
+          <h4>Director Digital Marketing, E&#8209;commerce &amp; Hardware</h4>
+          <p>Accountable for digital sales of the Telenet brand, covering connectivity sales and the webshop (main categories: smartphones and televisions). Manages 5 teams with a total of 55 FTE.</p>
+
+          <div class="results">
+            <div class="result">
+              <p class="seg">Residential customers</p>
+              <p class="move"><span class="from">31%</span><span class="arrow">→</span>33%</p>
+              <p class="what">share of digital sales</p>
+            </div>
+            <div class="result">
+              <p class="seg">SOHO (up to 4 employees)</p>
+              <p class="move"><span class="from">15.3%</span><span class="arrow">→</span>24.2%</p>
+              <p class="what">share of digital sales</p>
+            </div>
+          </div>
+
+          <p class="sub">Scope</p>
+          <ul>
+            <li>Digital sales: connectivity and webshop (smartphones, televisions)</li>
+            <li>Capabilities and transformation roadmap for the digital commercial scope</li>
+            <li>CX design of customer journeys</li>
+            <li>Digital media buying</li>
+            <li>Marketing automation for cross-sell, upsell and deepsell</li>
+            <li>Digital analytics and A/B testing</li>
+            <li>Content management</li>
+          </ul>
+
+          <p class="sub">Key achievements</p>
+          <ul>
+            <li>Grew the share of digital sales for Residential and SOHO customers (see above)</li>
+            <li>Redesigned the organization to separate short-term delivery from long-term transformation work</li>
+            <li>Launched the new modular product line-up across digital channels</li>
+          </ul>
+
+          <p class="sub">In the pipeline</p>
+          <ul>
+            <li>New webshop</li>
+            <li>Leasing model for smartphones</li>
+            <li>MyTelenet customer zone: from a pure care zone to a place where customers buy additional products and change their current ones</li>
+            <li>Customer value positioning of the digital channel</li>
+            <li>Making the customer chatbot sales-ready</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- KBC -->
+    <div class="employer">
+      <div class="employer-head">
+        <h3>KBC</h3>
+        <span class="span">Mar 2014 – Mar 2024, Leuven</span>
+      </div>
+      <p class="employer-note">10 years, five roles from online marketeer to business architect.</p>
+
+      <div class="job">
+        <div class="when">Oct 2022 – Mar 2024</div>
+        <div>
+          <h4>Business Architect Digital &amp; Lead-Driven Sales</h4>
+          <p>Set the strategic direction for all commercial communication via the app, proactive Kate (KBC's digital assistant) and email, and for all leads handled by human advisors in branches and the contact center. Owned the roadmap for this topic within the transformation stream.</p>
+          <ul>
+            <li>Introduced sales in Kate</li>
+            <li>Structurally increased the reach of leads</li>
+            <li>Defined the target business architecture</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Nov 2019 – Oct 2022</div>
+        <div>
+          <h4>Head of Marketing Experts &amp; Policy</h4>
+          <p>Led a team of 15 FTE marketing experts supporting the business teams across customer journey management, media buying, conversion rate optimization (CRO), marketing and web analytics, digital personalization, SEO, email marketing and marketing automation.</p>
+          <ul>
+            <li>Revised the content and email marketing approach</li>
+            <li>Set up automated customer journeys for sales</li>
+            <li>Scaled the CRO approach</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Dec 2016 – Nov 2019</div>
+        <div>
+          <h4>Head of Digital Journey Managers</h4>
+          <p>Led a team of 12 FTE digital journey managers in the CC Digital department, covering current and savings accounts, credit cards, acquisition, investing, KBC Brussels and Private Banking. Responsible for new sales flows, digital sales and go-to-market of new sales capabilities.</p>
+          <ul>
+            <li>Launched key digital sales flows: pension savings, investments and new credit card flows</li>
+            <li>Launched the KBC Brussels sub-brand digitally</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Dec 2015 – Nov 2016</div>
+        <div>
+          <h4>Digital Journey Manager Savings, Investments &amp; Prospects</h4>
+          <p>End-to-end responsibility for the customer journeys of several product groups. Managed digital sales and lead generation, defined digital strategies per journey and led a multidisciplinary SLAM team to deliver results.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Mar 2014 – Nov 2015</div>
+        <div>
+          <h4>E-commerce Specialist / Online Marketeer</h4>
+          <ul>
+            <li>Mar – Aug 2014: online sales of KBC savings accounts and the online sales approach</li>
+            <li>Sep 2014 – Nov 2015: new KBC retail website, from concept and strategy to implementation; led content strategy and acted as scrum master for the content creation team</li>
+            <li>Implemented the new CMS, analytics and A/B testing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delta Lloyd -->
+    <div class="employer">
+      <div class="employer-head">
+        <h3>Delta Lloyd Bank</h3>
+        <span class="span">Nov 2011 – Apr 2014, Brussels</span>
+      </div>
+      <div class="job">
+        <div class="when">Nov 2011 – Apr 2014</div>
+        <div>
+          <h4>Online Marketing Manager</h4>
+          <ul>
+            <li>Inbound and content marketing (online)</li>
+            <li>Social media strategy for marketing and webcare</li>
+            <li>Email marketing</li>
+            <li>SEO and SEA</li>
+            <li>Campaigns</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Early career, 2005 – 2011</h2>
+    <p class="employer-note">Communication and online roles in the non-profit and public sector, building a base in digital campaigns, email and content.</p>
+    <ul class="early">
+      <li>
+        <span class="when">Mar – Nov 2011</span>
+        <span><strong>Communication Manager</strong> <span class="org">at Vlaamse Liga tegen Kanker / Kom op tegen Kanker</span>
+        <span class="focus">Digital, social and mass media campaigns, newsletters</span></span>
+      </li>
+      <li>
+        <span class="when">Mar 2007 – Feb 2011</span>
+        <span><strong>Staff Officer</strong> <span class="org">at VVSG</span>
+        <span class="focus">Online strategy, newsletters, publications and editing</span></span>
+      </li>
+      <li>
+        <span class="when">Jul – Nov 2006</span>
+        <span><strong>Content Officer</strong> <span class="org">at CultuurNet Vlaanderen</span>
+        <span class="focus">Editing, content marketing, research</span></span>
+      </li>
+      <li>
+        <span class="when">Dec 2005 – Jun 2006</span>
+        <span><strong>Communication Officer</strong> <span class="org">at Project Lokale Erfgoedhouders</span>
+        <span class="focus">Communication and online strategy, events</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <footer>Kristof Gielen, curriculum vitae</footer>
+</main>
+</body>
+</html>
