@@ -15,15 +15,20 @@
     --ink: #172033;
     --muted: #5A6577;
     --rule: #DCE1E7;
-    --accent: #2F45C2;
-    --c-early: #CDD4DD;
-    --c-dl: #A3AEBD;
-    --c-kbc1: #8C9BD6;
-    --c-kbc2: #7486CF;
-    --c-kbc3: #5C71C9;
-    --c-kbc4: #445BC4;
-    --c-kbc5: #2F45C2;
-    --c-telenet: #17206B;
+    --accent: #00548B;
+    --c-early: #D3D8DF;
+    --c-dl: #006643;
+    /* KBC brand blues: light #00AEEF to dark #003768 */
+    --c-kbc1: #00AEEF;
+    --c-kbc2: #0090CF;
+    --c-kbc3: #0072AE;
+    --c-kbc4: #00548B;
+    --c-kbc5: #003768;
+    /* Telenet brand yellow */
+    --c-telenet: #FFC421;
+    --b-telenet: #FFC421;
+    --b-kbc: #003768;
+    --b-dl: #006643;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -32,20 +37,24 @@
       --ink: #E7EAF0;
       --muted: #9AA3B2;
       --rule: #2A3140;
-      --accent: #8FA0FF;
+      --accent: #5CC8F5;
       --c-early: #343C4B;
-      --c-dl: #4A5466;
-      --c-kbc1: #3A4780;
-      --c-kbc2: #43529A;
-      --c-kbc3: #4D5EB4;
-      --c-kbc4: #5A6CCB;
-      --c-kbc5: #6E80E0;
-      --c-telenet: #A9B6FF;
+      --c-dl: #1F8A5E;
+      --c-kbc1: #0B3D63;
+      --c-kbc2: #0A5687;
+      --c-kbc3: #0870A8;
+      --c-kbc4: #038FC9;
+      --c-kbc5: #00AEEF;
+      --c-telenet: #FFC421;
+      --b-telenet: #FFC421;
+      --b-kbc: #00AEEF;
+      --b-dl: #1F8A5E;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #10141C; --surface: #171C26; --ink: #E7EAF0; --muted: #9AA3B2; --rule: #2A3140; --accent: #8FA0FF;
-    --c-early: #343C4B; --c-dl: #4A5466; --c-kbc1: #3A4780; --c-kbc2: #43529A; --c-kbc3: #4D5EB4; --c-kbc4: #5A6CCB; --c-kbc5: #6E80E0; --c-telenet: #A9B6FF;
+    --bg: #10141C; --surface: #171C26; --ink: #E7EAF0; --muted: #9AA3B2; --rule: #2A3140; --accent: #5CC8F5;
+    --c-early: #343C4B; --c-dl: #1F8A5E; --c-kbc1: #0B3D63; --c-kbc2: #0A5687; --c-kbc3: #0870A8; --c-kbc4: #038FC9; --c-kbc5: #00AEEF; --c-telenet: #FFC421;
+    --b-telenet: #FFC421; --b-kbc: #00AEEF; --b-dl: #1F8A5E;
   }
 
   * { box-sizing: border-box; }
@@ -91,24 +100,72 @@
   .career {
     margin: 44px 0 52px;
   }
+  .tags {
+    position: relative;
+    height: 28px;
+    margin-bottom: 6px;
+  }
+  .tag {
+    position: absolute;
+    bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .tag .logo { height: 14px; width: auto; display: block; }
+  .tag-kbc { left: 63.6%; transform: translateX(-50%); background: #003768; color: #FFFFFF; }
+  .tag-telenet { right: 0; background: #FFC421; color: #291D18; }
+  .career { position: relative; }
   .strip {
     display: flex;
     height: 34px;
     border-radius: 6px;
     overflow: hidden;
-    gap: 2px;
+    gap: 1px;
   }
-  .strip > span { display: block; height: 100%; }
-  .s-early   { flex: 71;  background: var(--c-early); }
-  .s-dl      { flex: 28;  background: var(--c-dl); }
-  .s-kbc     { flex: 120; display: flex !important; gap: 1px; }
-  .s-kbc i   { display: block; height: 100%; }
-  .k1 { flex: 21; background: var(--c-kbc1); }
-  .k2 { flex: 12; background: var(--c-kbc2); }
-  .k3 { flex: 35; background: var(--c-kbc3); }
-  .k4 { flex: 35; background: var(--c-kbc4); }
-  .k5 { flex: 17; background: var(--c-kbc5); }
-  .s-telenet { flex: 31;  background: var(--c-telenet); }
+  .seg {
+    display: block;
+    height: 100%;
+    cursor: default;
+    outline: none;
+    transition: opacity 120ms ease;
+  }
+  .seg.first { margin-left: 2px; }
+  .seg:first-child { margin-left: 0; }
+  .strip.active .seg { opacity: 0.45; }
+  .strip.active .seg.on { opacity: 1; }
+  .seg:focus-visible { box-shadow: inset 0 0 0 2px var(--ink); }
+
+  .tip {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: max-content;
+    max-width: min(280px, calc(100vw - 32px));
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 0.85rem;
+    line-height: 1.35;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 100ms ease;
+  }
+  .tip.show { opacity: 1; }
+  .tip strong { display: block; font-weight: 700; }
+  .tip span { opacity: 0.75; }
+  @media (prefers-reduced-motion: reduce) {
+    .seg, .tip { transition: none; }
+  }
 
   .axis {
     position: relative;
@@ -169,6 +226,20 @@
     gap: 4px 16px;
     margin-bottom: 4px;
   }
+  .employer { --brand: var(--rule); }
+  .employer.telenet { --brand: var(--b-telenet); }
+  .employer.kbc { --brand: var(--b-kbc); }
+  .employer.dl { --brand: var(--b-dl); }
+  .employer-name { display: flex; align-items: center; gap: 12px; }
+  .employer-name::before {
+    content: "";
+    width: 6px; height: 1.6rem;
+    border-radius: 3px;
+    background: var(--brand);
+    flex: none;
+  }
+  .employer-name .logo { height: 28px; width: auto; display: block; }
+  .employer-head h3 .was { font-size: 1rem; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-left: 6px; }
   .employer-head h3 {
     font-size: 1.75rem;
     letter-spacing: -0.02em;
@@ -222,6 +293,7 @@
   .result {
     background: var(--surface);
     border: 1px solid var(--rule);
+    border-left: 4px solid var(--b-telenet);
     border-radius: 8px;
     padding: 14px 16px;
   }
@@ -301,14 +373,25 @@
   </header>
 
   <div class="career" aria-label="Career overview from 2005 to today">
-    <div class="strip" aria-hidden="true">
-      <span class="s-early" title="Early career, 2005–2011"></span>
-      <span class="s-dl" title="Delta Lloyd Bank, 2011–2014"></span>
-      <span class="s-kbc" title="KBC, 2014–2024">
-        <i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i><i class="k5"></i>
-      </span>
-      <span class="s-telenet" title="Telenet, 2024–today"></span>
+    <div class="tags" aria-hidden="true">
+      <!-- Logo's: zet logos/kbc.png en logos/telenet.png in je repository; zonder bestand blijft alleen de naam staan -->
+      <span class="tag tag-kbc"><img class="logo" src="logos/kbc.png" alt="" onerror="this.remove()">KBC</span>
+      <span class="tag tag-telenet"><img class="logo" src="logos/telenet.png" alt="" onerror="this.remove()">Telenet</span>
     </div>
+    <div class="strip" id="strip">
+      <span class="seg first" tabindex="0" style="flex:7;background:var(--c-early)" data-role="Communication Officer" data-org="Project Lokale Erfgoedhouders" data-when="Dec 2005 – Jun 2006" aria-label="Communication Officer, Project Lokale Erfgoedhouders, Dec 2005 – Jun 2006"></span>
+      <span class="seg" tabindex="0" style="flex:8;background:var(--c-early)" data-role="Content Officer" data-org="CultuurNet Vlaanderen" data-when="Jul – Nov 2006" aria-label="Content Officer, CultuurNet Vlaanderen, Jul – Nov 2006"></span>
+      <span class="seg" tabindex="0" style="flex:48;background:var(--c-early)" data-role="Staff Officer" data-org="VVSG" data-when="Mar 2007 – Feb 2011" aria-label="Staff Officer, VVSG, Mar 2007 – Feb 2011"></span>
+      <span class="seg" tabindex="0" style="flex:8;background:var(--c-early)" data-role="Communication Manager" data-org="Vlaamse Liga tegen Kanker / Kom op tegen Kanker" data-when="Mar – Nov 2011" aria-label="Communication Manager, Vlaamse Liga tegen Kanker / Kom op tegen Kanker, Mar – Nov 2011"></span>
+      <span class="seg first" tabindex="0" style="flex:28;background:var(--c-dl)" data-role="Online Marketing Manager" data-org="Delta Lloyd Bank (now Nagelmackers)" data-when="Nov 2011 – Apr 2014" aria-label="Online Marketing Manager, Delta Lloyd Bank (now Nagelmackers), Nov 2011 – Apr 2014"></span>
+      <span class="seg first" tabindex="0" style="flex:21;background:var(--c-kbc1)" data-role="E-commerce Specialist / Online Marketeer" data-org="KBC" data-when="Mar 2014 – Nov 2015" aria-label="E-commerce Specialist / Online Marketeer, KBC, Mar 2014 – Nov 2015"></span>
+      <span class="seg" tabindex="0" style="flex:12;background:var(--c-kbc2)" data-role="Digital Journey Manager Savings, Investments &amp; Prospects" data-org="KBC" data-when="Dec 2015 – Nov 2016" aria-label="Digital Journey Manager Savings, Investments &amp; Prospects, KBC, Dec 2015 – Nov 2016"></span>
+      <span class="seg" tabindex="0" style="flex:35;background:var(--c-kbc3)" data-role="Head of Digital Journey Managers" data-org="KBC" data-when="Dec 2016 – Nov 2019" aria-label="Head of Digital Journey Managers, KBC, Dec 2016 – Nov 2019"></span>
+      <span class="seg" tabindex="0" style="flex:35;background:var(--c-kbc4)" data-role="Head of Marketing Experts &amp; Policy" data-org="KBC" data-when="Nov 2019 – Oct 2022" aria-label="Head of Marketing Experts &amp; Policy, KBC, Nov 2019 – Oct 2022"></span>
+      <span class="seg" tabindex="0" style="flex:17;background:var(--c-kbc5)" data-role="Business Architect Digital &amp; Lead-Driven Sales" data-org="KBC" data-when="Oct 2022 – Mar 2024" aria-label="Business Architect Digital &amp; Lead-Driven Sales, KBC, Oct 2022 – Mar 2024"></span>
+      <span class="seg first" tabindex="0" style="flex:31;background:var(--c-telenet)" data-role="Director Digital Marketing, E&#8209;commerce &amp; Hardware" data-org="Telenet" data-when="2024 – present" aria-label="Director Digital Marketing, E&#8209;commerce &amp; Hardware, Telenet, 2024 – present"></span>
+    </div>
+    <div class="tip" id="tip" role="status" aria-live="polite"></div>
     <div class="axis" aria-hidden="true">
       <span class="a0">2005</span>
       <span class="a1">2011</span>
@@ -318,7 +401,7 @@
     </div>
     <ul class="legend">
       <li><span class="sw" style="background:var(--c-early)"></span><span><b>Communication</b> non-profit &amp; public sector</span></li>
-      <li><span class="sw" style="background:var(--c-dl)"></span><span><b>Delta Lloyd Bank</b> online marketing</span></li>
+      <li><span class="sw" style="background:var(--c-dl)"></span><span><b>Delta Lloyd Bank</b> now Nagelmackers</span></li>
       <li><span class="sw sw-kbc"></span><span><b>KBC</b> five roles, marketeer to architect</span></li>
       <li><span class="sw" style="background:var(--c-telenet)"></span><span><b>Telenet</b> director</span></li>
     </ul>
@@ -333,9 +416,13 @@
     <h2>Experience</h2>
 
     <!-- Telenet -->
-    <div class="employer">
+    <div class="employer telenet">
       <div class="employer-head">
-        <h3>Telenet</h3>
+        <div class="employer-name">
+          <!-- Logo: zet een bestand logos/telenet.png in je repository; zonder bestand verdwijnt dit vanzelf -->
+          <img class="logo" src="logos/telenet.png" alt="Telenet" onerror="this.remove()">
+          <h3>Telenet</h3>
+        </div>
         <span class="span">2024 – present</span>
       </div>
       <div class="job">
@@ -343,19 +430,6 @@
         <div>
           <h4>Director Digital Marketing, E&#8209;commerce &amp; Hardware</h4>
           <p>Accountable for digital sales of the Telenet brand, covering connectivity sales and the webshop (main categories: smartphones and televisions). Manages 5 teams with a total of 55 FTE.</p>
-
-          <div class="results">
-            <div class="result">
-              <p class="seg">Residential customers</p>
-              <p class="move"><span class="from">31%</span><span class="arrow">→</span>33%</p>
-              <p class="what">share of digital sales</p>
-            </div>
-            <div class="result">
-              <p class="seg">SOHO (up to 4 employees)</p>
-              <p class="move"><span class="from">15.3%</span><span class="arrow">→</span>24.2%</p>
-              <p class="what">share of digital sales</p>
-            </div>
-          </div>
 
           <p class="sub">Scope</p>
           <ul>
@@ -370,7 +444,7 @@
 
           <p class="sub">Key achievements</p>
           <ul>
-            <li>Grew the share of digital sales for Residential and SOHO customers (see above)</li>
+            <li>Grew the share of digital sales from 31% to 33% for Residential customers and from 15.3% to 24.2% for SOHO (entrepreneurs with up to 4 employees)</li>
             <li>Redesigned the organization to separate short-term delivery from long-term transformation work</li>
             <li>Launched the new modular product line-up across digital channels</li>
           </ul>
@@ -388,9 +462,12 @@
     </div>
 
     <!-- KBC -->
-    <div class="employer">
+    <div class="employer kbc">
       <div class="employer-head">
-        <h3>KBC</h3>
+        <div class="employer-name">
+          <img class="logo" src="logos/kbc.png" alt="KBC" onerror="this.remove()">
+          <h3>KBC</h3>
+        </div>
         <span class="span">Mar 2014 – Mar 2024, Leuven</span>
       </div>
       <p class="employer-note">10 years, five roles from online marketeer to business architect.</p>
@@ -455,9 +532,12 @@
     </div>
 
     <!-- Delta Lloyd -->
-    <div class="employer">
+    <div class="employer dl">
       <div class="employer-head">
-        <h3>Delta Lloyd Bank</h3>
+        <div class="employer-name">
+          <img class="logo" src="logos/nagelmackers.png" alt="Nagelmackers" onerror="this.remove()">
+          <h3>Delta Lloyd Bank<span class="was">now Nagelmackers</span></h3>
+        </div>
         <span class="span">Nov 2011 – Apr 2014, Brussels</span>
       </div>
       <div class="job">
@@ -503,7 +583,68 @@
     </ul>
   </section>
 
+  <section>
+    <h2>Education</h2>
+    <ul class="early">
+      <li>
+        <span class="when">1999 – 2004</span>
+        <span><strong>Master in History</strong> <span class="org">at KU Leuven</span></span>
+      </li>
+    </ul>
+  </section>
+
   <footer>Kristof Gielen, curriculum vitae</footer>
 </main>
+<script>
+(function () {
+  var strip = document.getElementById('strip');
+  var tip = document.getElementById('tip');
+  var career = strip.parentElement;
+  var segs = strip.querySelectorAll('.seg');
+  var current = null;
+
+  function show(seg, clientX) {
+    if (current && current !== seg) current.classList.remove('on');
+    current = seg;
+    seg.classList.add('on');
+    strip.classList.add('active');
+    tip.innerHTML = '<strong>' + seg.dataset.role + '</strong>' + seg.dataset.org + '<br><span>' + seg.dataset.when + '</span>';
+    tip.classList.add('show');
+    place(seg, clientX);
+  }
+  function place(seg, clientX) {
+    var box = career.getBoundingClientRect();
+    var sb = seg.getBoundingClientRect();
+    var x = (clientX != null ? clientX : sb.left + sb.width / 2) - box.left;
+    var w = tip.offsetWidth;
+    x = Math.max(0, Math.min(x - w / 2, box.width - w));
+    var y = sb.top - box.top - tip.offsetHeight - 8;
+    tip.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+  }
+  function hide() {
+    if (current) current.classList.remove('on');
+    current = null;
+    strip.classList.remove('active');
+    tip.classList.remove('show');
+  }
+
+  segs.forEach(function (seg) {
+    seg.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') show(seg, e.clientX); });
+    seg.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse' && current === seg) place(seg, e.clientX); });
+    seg.addEventListener('focus', function () { show(seg); });
+    seg.addEventListener('blur', hide);
+    seg.addEventListener('pointerdown', function () { seg._wasOpen = (current === seg); });
+    seg.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (e.pointerType === 'mouse') return;
+      if (seg._wasOpen) hide(); else show(seg, e.clientX);
+      seg._wasOpen = false;
+    });
+  });
+  strip.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') hide(); });
+  document.addEventListener('click', hide);
+  window.addEventListener('resize', function () { if (current) place(current); });
+})();
+</script>
 </body>
 </html>
